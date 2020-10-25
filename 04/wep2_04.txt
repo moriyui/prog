@@ -1,0 +1,13 @@
+echo uniqid(rand());
+
+uniqid関数　   現在時刻(マイクロ秒まで)に基づいたユニークな13文字のIDを生成する関数
+※複数サーバで同時刻で実行すると同じ値が生成されてしまう
+↓
+rand関数を用いて10桁＋13桁のランダムな文字列にして解決
+
+
+
+わからなかったので検索しました。
+参考サイト
+https://techacademy.jp/magazine/18802
+https://ysklog.net/php/2103.html
