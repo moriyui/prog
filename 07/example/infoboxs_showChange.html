@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>infobox show[one/Multiple]</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html,body{height:100%;}body{padding:0;margin:0;}h1{padding:0;margin:0;font-size:50%;}</style>
+</head>
+<body>
+
+
+<!-- MAP[START] -->
+<h1>Click on the pin. (Select 1 to 3 as the second argument of the function. The result changes.)</h1>
+<div id="myMap" style="width:100vw;height:100vh;"></div>
+<!-- MAP[END] -->
+
+
+<script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AujnOYSJ_VCPZTtDILEdPvBwPucTxZMBwSY06Xv1ZIzJ-a2vVOr3yGJri1a1qOLl' async defer></script>
+<script src="../js/BmapQuery.js"></script>
+<script>
+    //init
+    function GetMap() {
+        //------------------------------------------------------------------------
+        //1. Instance
+        //------------------------------------------------------------------------
+        const map = new Bmap("#myMap");
+        //------------------------------------------------------------------------
+        //2. Display Map
+        //------------------------------------------------------------------------
+        map.startMap(35.691223, 139.743011, "load", 10);
+
+        //----------------------------------------------------
+        //3. Infobox
+        //   options = new Array();
+        //   options[index] = { lat, lon, width, height, title, pinColor, description, show };
+        //----------------------------------------------------
+        const options = [];
+        options[0]={
+            "lat":35.512413,
+            "lon":139.620056,
+            "title":"横浜",
+            "pinColor":"#ff0000",
+            "height":300,
+            "width":320,
+            "description": '横浜アリーナ<br><img src="../img/yokjoari.jpg" width="300">',
+            "show":false
+        };
+        options[1]={
+            "lat":34.668865,
+            "lon": 135.501053,
+            "title":"道頓堀",
+            "pinColor":"#0000ff",
+            "height":300,
+            "width":320,
+            "description": 'グリコサイン<br><img src="../img/guriko.jpg" width="300">',
+            "show":false
+        };
+        options[2]={
+            "lat":35.705166, 
+            "lon":139.753998,
+            "title":"水道橋",
+            "pinColor":"#9400D3",
+            "height":300,
+            "width":320,
+            "description": '東京ドーム<br><img src="../img/dome.jpg" width="300">',
+            "show":false
+        };
+        options[3]={
+            "lat": 38.230400, 
+            "lon": 140.887161,
+            "title":"仙台",
+            "pinColor":"#ff0000",
+            "height":300,
+            "width":320,
+            "description": 'ゼビオアリーナ<br><img src="../img/zebio.jpg" width="300">',
+            "show":false
+        };        
+        options[4]={
+            "lat":37.913433, 
+            "lon":139.039032,
+            "title":"新潟",
+            "pinColor":"#ff0000",
+            "height":300,
+            "width":320,
+            "description": '新潟県民会館<br><img src="../img/niigata.jpg" width="300">',
+            "show":false
+        };
+        options[5]={
+            "lat":35.768500, 
+            "lon":139.420500,
+            "title":"西武球場",
+            "pinColor":"#9400D3",
+            "height":300,
+            "width":320,
+            "description": 'メットライフドーム<br><img src="../img/seibudome.jpg" width="300">',
+            "show":false
+        };
+
+        options[6]={
+            "lat":35.026882,
+            "lon": 135.798248,
+            "title":"京都",
+            "pinColor":"#0000ff",
+            "height":300,
+            "width":320,
+            "description": '銀閣寺<br><img src="../img/tera.jpg" width="300">',
+            "show":false
+        };
+        
+        options[7]={
+            "lat":34.664030,
+            "lon": 135.210300,
+            "title":"神戸",
+            "pinColor":"#ff0000",
+            "height":300,
+            "width":320,
+            "description": 'ワールド記念ホール<br><img src="../img/koube.jpg" width="300">',
+            "show":false
+        };
+
+        //----------------------------------------------------
+        //4. Switch infoboxs
+        //   infoboxLayers(options, true); //true=one, false=Multiple
+        //----------------------------------------------------
+        map.infoboxLayers(options,true);
+
+     setTimeout(function(){
+        map.changeMap(35.691223, 139.743011,  "load");
+    },3000);
+    
+
+    setTimeout(function(){
+        map.changeMap(34.814362, 135.650650,  "load");
+    },3000);
+    
+    }
+
+</script>
+</body>
+</html>
